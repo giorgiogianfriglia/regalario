@@ -64,15 +64,15 @@ const HomeScreen = ({
                 <div className="grid grid-cols-1 lg:grid-cols-[140px_1fr] gap-6 mb-6">
                     {/* Left Column: Action Buttons */}
                     <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
-                        <button onClick={openNewPersonModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition">
+                        <button onClick={openNewPersonModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-100 transition">
                             <Users className="mx-auto mb-2 text-indigo-500" size={24} />
                             <span className="font-bold text-sm text-gray-700">Nuova Persona</span>
                         </button>
-                        <button onClick={openNewGiftModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition">
+                        <button onClick={openNewGiftModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-100 transition">
                             <Gift className="mx-auto mb-2 text-amber-500" size={24} />
                             <span className="font-bold text-sm text-gray-700">Nuovo Regalo</span>
                         </button>
-                        <button onClick={() => setShowPeopleList(true)} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition lg:hidden">
+                        <button onClick={() => setShowPeopleList(true)} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-100 transition lg:hidden">
                             <Users className="mx-auto mb-2 text-green-500" size={24} />
                             <span className="font-bold text-sm text-gray-700">Persone</span>
                         </button>
@@ -174,7 +174,7 @@ const HomeScreen = ({
                         {/* Right: Upcoming Events - Prossimi Eventi */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
                             <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Prossimi Eventi</h2>
-                            <div className="space-y-4">
+                            <div className="space-y-2">
                                 {upcomingEvents.map((event, i) => (
                                     <div key={i} className="flex items-center justify-between cursor-pointer group" onClick={() => handleSidebarClick(event)}>
                                         <div className="w-3/4">
@@ -190,7 +190,7 @@ const HomeScreen = ({
                                 ))}
                             </div>
                             {hiddenSoonestCount > 0 && (
-                                <div className="mt-4 text-center text-sm text-gray-500 font-bold">
+                                <div className="mt-3 text-center text-sm text-gray-500 font-bold">
                                     + {hiddenSoonestCount} {hiddenSoonestCount > 1 ? 'altre persone' : 'altra persona'}
                                 </div>
                             )}
