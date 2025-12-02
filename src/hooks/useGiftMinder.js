@@ -274,8 +274,18 @@ export const useGiftMinder = () => {
         }).filter(Boolean).sort((a, b) => a.nextEvent.days - b.nextEvent.days);
     }, [persone]);
 
-    const eventiArchiviati = useMemo(() => {
-        return persone.flatMap(p => p.eventi.map((e, idx) => ({ uid: `${p.id}-${idx}`, nome: p.nome, tipo: e.tipo, archived: e.archived, giftCount: e.storicoRegali?.length || 0 }))).filter(e => e.archived);
+    const personeArchiviate = useMemo(() => {
+        return persone
+            .filter(p => p.eventi.length > 0 && p.eventi.every(e => e.archived))
+            .map(p => {
+                const giftCount = p.eventi.reduce((acc, e) => acc + (e.storicoRegali?.length || 0), 0);
+                return {
+                    uid: p.id,
+                    nome: p.nome,
+                    eventi: p.eventi.map(e => e.tipo).join(', '),
+                    giftCount: giftCount
+                };
+            });
     }, [persone]);
 
     // --- LOGICA SUGGERIMENTI FIXATA ---
@@ -641,8 +651,24 @@ export const useGiftMinder = () => {
     const handleEmailAuth = async (e) => { e.preventDefault(); setAuthLoading(true); if (authMode === 'signup') { const { error } = await supabase.auth.signUp({ email, password }); if (error) alert(error.message); else alert("Registrazione completata! Controlla la tua email per confermare il tuo account."); } else { const { error } = await supabase.auth.signInWithPassword({ email, password }); if (error) alert("Errore login."); } setAuthLoading(false); };
     const handleGoogleLogin = async () => { await supabase.auth.signInWithOAuth({ provider: 'google' }); };
     const handleLogout = async () => { await supabase.auth.signOut(); };
-    const handleRestore = (uid) => { const [pId, eIdx] = uid.split('-'); const updated = persone.map(p => { if (p.id.toString() === pId) { const newEventi = [...p.eventi]; newEventi[parseInt(eIdx)].archived = false; return { ...p, eventi: newEventi }; } return p; }); salvaSuCloud({ persone: updated }); setToastMsg("Ripristinato!"); };
-    const handlePermanentDelete = (uid) => { askConfirm("Eliminazione Definitiva", "Irreversibile.", () => { const [pId, eIdx] = uid.split('-'); const updated = persone.map(p => { if (p.id.toString() === pId) { const newEventi = p.eventi.filter((_, i) => i !== parseInt(eIdx)); return { ...p, eventi: newEventi }; } return p; }).filter(p => p.eventi.length > 0); salvaSuCloud({ persone: updated }); }); };
+    const handleRestore = (personId) => {
+        const updated = persone.map(p => {
+            if (p.id === personId) {
+                const newEventi = p.eventi.map(e => ({ ...e, archived: false }));
+                return { ...p, eventi: newEventi };
+            }
+            return p;
+        });
+        salvaSuCloud({ persone: updated });
+        setToastMsg("Persona ripristinata!");
+    };
+    const handlePermanentDelete = (personId) => {
+        askConfirm("Eliminazione Definitiva", "Questa azione eliminerà la persona e tutto il suo storico. L'azione è irreversibile.", () => {
+            const updated = persone.filter(p => p.id !== personId);
+            salvaSuCloud({ persone: updated });
+            setToastMsg("Persona eliminata definitivamente.");
+        });
+    };
 
 
 
@@ -696,7 +722,7 @@ export const useGiftMinder = () => {
         customRelation, setCustomRelation, newPartnerId, setNewPartnerId, newEventType, setNewEventType, customEventType, setCustomEventType,
         newEventDate, setNewEventDate, giftTargetEvent, setGiftTargetEvent, giftObj, setGiftObj, giftYear, setGiftYear, giftParticipants, setGiftParticipants,
         giftShop, setGiftShop, giftLink, setGiftLink, giftImg, setGiftImg, giftPrice, setGiftPrice, addEventName, setAddEventName,
-        customAddEventName, setCustomAddEventName, addEventDate, setAddEventDate, themeStyles, sidebarList, eventiArchiviati, activePerson,
+        customAddEventName, setCustomAddEventName, addEventDate, setAddEventDate, themeStyles, sidebarList, personeArchiviate, activePerson,
         headerInfo, amazonSuggestions, getLastGift, customEventTypes, editingEventType, setEditingEventType,
         saveCustomRelation, saveCustomEventType, saveCustomAddEventName, openNewPersonModal, openEditPersonModal,
         handleEditEventChange, handleAddFixedEvents, handleSavePerson, resetGiftForm, openNewGiftModal, openEditGiftModal,
