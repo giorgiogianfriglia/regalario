@@ -652,15 +652,17 @@ export const useRegalario = () => {
     const handleGoogleLogin = async () => { await supabase.auth.signInWithOAuth({ provider: 'google' }); };
     const handleLogout = async () => { await supabase.auth.signOut(); };
     const handleRestore = (personId) => {
-        const updated = persone.map(p => {
-            if (p.id === personId) {
-                const newEventi = p.eventi.map(e => ({ ...e, archived: false }));
-                return { ...p, eventi: newEventi };
-            }
-            return p;
+        askConfirm("Ripristina Persona", "Sei sicuro di voler ripristinare questa persona?", () => {
+            const updated = persone.map(p => {
+                if (p.id === personId) {
+                    const newEventi = p.eventi.map(e => ({ ...e, archived: false }));
+                    return { ...p, eventi: newEventi };
+                }
+                return p;
+            });
+            salvaSuCloud({ persone: updated });
+            setToastMsg("Persona ripristinata!");
         });
-        salvaSuCloud({ persone: updated });
-        setToastMsg("Persona ripristinata!");
     };
     const handlePermanentDelete = (personId) => {
         askConfirm("Eliminazione Definitiva", "Questa azione eliminerà la persona e tutto il suo storico. L'azione è irreversibile.", () => {
