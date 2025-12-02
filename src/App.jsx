@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGiftMinder } from './hooks/useGiftMinder';
+import { useRegalario } from './hooks/useRegalario';
 import AuthScreen from './components/auth/AuthScreen';
 import Sidebar from './components/layout/Sidebar';
 import MainContent from './components/layout/MainContent';
@@ -16,76 +16,76 @@ import {
 import { calcolaOccorrenza, formatFixedDate } from './utils/helpers';
 
 export default function App() {
-    const giftMinder = useGiftMinder();
+    const regalario = useRegalario();
 
-    if (!giftMinder.session) {
-        return <AuthScreen {...giftMinder} />;
+    if (!regalario.session) {
+        return <AuthScreen {...regalario} />;
     }
 
     return (
         <div className="flex flex-col md:flex-row bg-white text-gray-800 overflow-hidden relative h-full">
-            {giftMinder.toastMsg && <Toast msg={giftMinder.toastMsg} />}
+            {regalario.toastMsg && <Toast msg={regalario.toastMsg} />}
 
-            {giftMinder.confirmConfig.show && (
+            {regalario.confirmConfig.show && (
                 <ConfirmModal
-                    config={giftMinder.confirmConfig}
-                    onCancel={() => giftMinder.setConfirmConfig({ ...giftMinder.confirmConfig, show: false })}
-                    onConfirm={giftMinder.executeConfirm}
+                    config={regalario.confirmConfig}
+                    onCancel={() => regalario.setConfirmConfig({ ...regalario.confirmConfig, show: false })}
+                    onConfirm={regalario.executeConfirm}
                 />
             )}
 
             <div className="flex-grow contents order-2 md:order-1">
-                <Sidebar {...giftMinder} />
+                <Sidebar {...regalario} />
             </div>
             <div className="flex-grow contents order-1 md:order-2">
-                <MainContent {...giftMinder} calcolaOccorrenza={calcolaOccorrenza} formatFixedDate={formatFixedDate} />
+                <MainContent {...regalario} calcolaOccorrenza={calcolaOccorrenza} formatFixedDate={formatFixedDate} />
             </div>
 
-            {giftMinder.showSettings && (
+            {regalario.showSettings && (
                 <SettingsModal
-                    {...giftMinder}
-                    onClose={() => giftMinder.setShowSettings(false)}
+                    {...regalario}
+                    onClose={() => regalario.setShowSettings(false)}
                 />
             )}
 
-            {giftMinder.showModalPerson && (
+            {regalario.showModalPerson && (
                 <PersonModal
-                    onClose={() => giftMinder.setShowModalPerson(false)}
-                    {...giftMinder}
+                    onClose={() => regalario.setShowModalPerson(false)}
+                    {...regalario}
                 />
             )}
 
-            {giftMinder.showModalGift && (
+            {regalario.showModalGift && (
                 <GiftModal
                     onClose={() => {
-                        giftMinder.setShowModalGift(false);
-                        giftMinder.setPendingNewEventData(null);
+                        regalario.setShowModalGift(false);
+                        regalario.setPendingNewEventData(null);
                     }}
-                    {...giftMinder}
+                    {...regalario}
                 />
             )}
 
-            {giftMinder.showAddEventModal && (
+            {regalario.showAddEventModal && (
                 <AddEventModal
-                    onClose={() => giftMinder.setShowAddEventModal(false)}
-                    isAddingEventFromGiftModal={giftMinder.isAddingEventFromGiftModal}
-                    setIsAddingEventFromGiftModal={giftMinder.setIsAddingEventFromGiftModal}
-                    setPendingNewEventData={giftMinder.setPendingNewEventData}
-                    {...giftMinder}
+                    onClose={() => regalario.setShowAddEventModal(false)}
+                    isAddingEventFromGiftModal={regalario.isAddingEventFromGiftModal}
+                    setIsAddingEventFromGiftModal={regalario.setIsAddingEventFromGiftModal}
+                    setPendingNewEventData={regalario.setPendingNewEventData}
+                    {...regalario}
                 />
             )}
 
-            {giftMinder.showArchive && (
+            {regalario.showArchive && (
                 <ArchiveModal
-                    onClose={() => giftMinder.setShowArchive(false)}
-                    {...giftMinder}
+                    onClose={() => regalario.setShowArchive(false)}
+                    {...regalario}
                 />
             )}
 
-            {giftMinder.showModalStats && giftMinder.activePerson && (
+            {regalario.showModalStats && regalario.activePerson && (
                 <StatsModal
-                    onClose={() => giftMinder.setShowModalStats(false)}
-                    {...giftMinder}
+                    onClose={() => regalario.setShowModalStats(false)}
+                    {...regalario}
                 />
             )}
         </div>

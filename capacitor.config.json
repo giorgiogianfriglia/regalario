@@ -1,6 +1,6 @@
 {
-  "appId": "com.giftminder.app",
-  "appName": "GiftMinder",
+  "appId": "com.regalario.app",
+  "appName": "Regalario",
   "webDir": "dist",
   "bundledWebRuntime": false
 }

@@ -34,7 +34,7 @@ const HomeScreen = ({
     if (sidebarList.length === 0) {
         return (
             <div className="p-6 bg-slate-50 h-full flex flex-col items-center justify-center text-center">
-                <h1 className="text-3xl font-bold mb-2">Benvenuto in GiftMinder!</h1>
+                <h1 className="text-3xl font-bold mb-2">Benvenuto in Regalario!</h1>
                 <p className="text-gray-600 mb-8">Sembra che tu non abbia ancora aggiunto nessuno. Inizia creando una scheda persona.</p>
                 <button
                     onClick={openNewPersonModal}
@@ -222,7 +222,7 @@ const HomeScreen = ({
                                 >
                                     <RefreshCw size={14} /> Rinnova
                                 </button>
-                                <a href="https://www.amazon.it/most-wished-for?tag=giftminder-21" target="_blank" rel="noreferrer" className="text-sm font-bold text-white hover:underline">Vedi tutti</a>
+                                <a href="https://www.amazon.it/most-wished-for?tag=lideo-21" target="_blank" rel="noreferrer" className="text-sm font-bold text-white hover:underline">Vedi tutti</a>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

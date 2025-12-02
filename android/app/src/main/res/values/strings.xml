@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">GiftMinder</string>
-    <string name="title_activity_main">GiftMinder</string>
-    <string name="package_name">com.giftminder.app</string>
-    <string name="custom_url_scheme">com.giftminder.app</string>
+    <string name="app_name">Regalario</string>
+    <string name="title_activity_main">Regalario</string>
+    <string name="package_name">com.regalario.app</string>
+    <string name="custom_url_scheme">com.regalario.app</string>
 </resources>

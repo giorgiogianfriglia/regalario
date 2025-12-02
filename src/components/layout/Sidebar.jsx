@@ -49,7 +49,7 @@ const Sidebar = ({
         <aside className="w-full md:w-105 bg-slate-50 border-r border-gray-200 flex flex-col h-auto md:h-full shadow-xl z-20">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50">
                 <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
-                    <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> GiftMinder
+                    <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                 </div>
                 <div className='flex items-center gap-2'>
                     <button onClick={openNewPersonModal} className="p-1.5 rounded shadow hover:opacity-90 transition bg-indigo-600 text-white">
@@ -86,7 +86,7 @@ const Sidebar = ({
             <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 h-screen overflow-y-auto custom-scroll' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
                 <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50 md:hidden">
                     <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
-                        <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> GiftMinder
+                        <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                     </div>
                     <button onClick={() => setShowPeopleList(false)} className="p-1.5 rounded shadow hover:opacity-90 transition mr-2 bg-indigo-600 text-white">
                         <Home size={20} />

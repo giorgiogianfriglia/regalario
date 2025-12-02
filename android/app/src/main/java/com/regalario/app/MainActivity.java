@@ -1,4 +1,4 @@
-package com.giftminder.app;
+package com.regalario.app;
 
 import com.getcapacitor.BridgeActivity;
 

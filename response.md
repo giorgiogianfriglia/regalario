@@ -1,7 +1,7 @@
 Ho completato le modifiche richieste. Ora è possibile eliminare gli eventi dalla scheda persona, inclusi quelli fissi. Se si tenta di eliminare l'ultimo evento, verrà visualizzato un avviso che l'intera persona verrà eliminata.
 
 Ho modificato i seguenti file:
-- `src/hooks/useGiftMinder.js`: per implementare la logica di eliminazione.
+- `src/hooks/useRegalario.js`: per implementare la logica di eliminazione.
 - `src/components/modals/PersonModal.jsx`: per consentire l'eliminazione degli eventi dalla modale.
 - `src/components/layout/MainContent.jsx`: per aggiornare la logica di eliminazione dei tab degli eventi.
 

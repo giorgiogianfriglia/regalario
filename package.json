@@ -1,7 +1,12 @@
 {
-  "name": "giftminder",
+  "name": "regalario",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://giorgiogianfriglia.github.io/regalario",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giorgiogianfriglia/regalario.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
