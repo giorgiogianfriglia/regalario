@@ -103,7 +103,7 @@ const Sidebar = ({
                             className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm outline-none"
                         />
                     </div>
-                    <div className="hidden md:flex justify-between px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-200 bg-gray-100">
+                    <div className="flex justify-between px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-200 bg-gray-100">
                         <span>Persona</span>
                         <span>Prossima scadenza</span>
                     </div>

@@ -23,7 +23,7 @@ export default function App() {
     }
 
     return (
-        <div className="flex flex-col md:flex-row bg-white text-gray-800 overflow-hidden relative h-full">
+        <div className="flex flex-col md:flex-row bg-white text-gray-800 relative h-full">
             {regalario.toastMsg && <Toast msg={regalario.toastMsg} />}
 
             {regalario.confirmConfig.show && (
