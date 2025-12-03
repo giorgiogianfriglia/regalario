@@ -50,7 +50,7 @@ const MainContent = (props) => {
                 </div>
             )}
             <div className="max-w-4xl mx-auto pb-20 fade-in">
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex justify-between items-start">
                     <div className="flex items-start gap-4">
                         {activePerson.foto ? (
                             <img 

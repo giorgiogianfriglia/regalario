@@ -12,7 +12,7 @@ body {
 }
 
 #root {
-    max-width: 1300px; /* A standard width */
+    max-width: 1200px; /* A standard width */
     margin: 0 auto; /* Center the box */
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* A subtle shadow for the box */
     height: 100vh;

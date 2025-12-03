@@ -46,7 +46,7 @@ const Sidebar = ({
     });
 
     return (
-        <aside className="w-full md:w-105 bg-slate-50 border-r border-gray-200 flex flex-col h-auto md:h-full shadow-xl z-20">
+        <aside className="w-full md:w-90 bg-slate-50 border-r border-gray-200 flex flex-col h-auto md:h-full shadow-xl z-20">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50">
                 <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
                     <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
@@ -92,19 +92,21 @@ const Sidebar = ({
                         <Home size={20} />
                     </button>
                 </div>
-                <div className="relative px-4 py-3 border-b border-gray-200">
-                    <Search size={16} className="absolute left-7 top-6 text-gray-400" />
-                    <input
-                        type="text"
-                        placeholder="Cerca persone o eventi..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-                    />
-                </div>
-                <div className="hidden md:flex justify-between px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-200 bg-gray-100">
-                    <span>Persona</span>
-                    <span>Prossima scadenza</span>
+                <div className="sticky top-0 bg-slate-50 z-10">
+                    <div className="relative px-4 py-3 border-b border-gray-200">
+                        <Search size={16} className="absolute left-7 top-6 text-gray-400" />
+                        <input
+                            type="text"
+                            placeholder="Cerca persone o eventi..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm outline-none"
+                        />
+                    </div>
+                    <div className="hidden md:flex justify-between px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-200 bg-gray-100">
+                        <span>Persona</span>
+                        <span>Prossima scadenza</span>
+                    </div>
                 </div>
                 <PeopleList 
                     sidebarList={filteredPeople}
