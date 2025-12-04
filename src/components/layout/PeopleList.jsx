@@ -5,6 +5,7 @@ const PeopleList = ({
     sidebarList,
     handleSidebarClick,
     selectedUid,
+    currentTheme
 }) => {
     return (
         <div className="overflow-y-auto flex-1 p-3 space-y-2">
@@ -14,7 +15,7 @@ const PeopleList = ({
                     <div
                         onClick={() => handleSidebarClick(item)}
                         className={`p-3 rounded-xl cursor-pointer border transition relative group ${selectedUid === item.uidToSelect ? 'bg-white shadow-md' : 'border-transparent hover:bg-white hover:shadow-sm'}`}
-                        style={selectedUid === item.uidToSelect ? { borderColor: '#4f46e5' } : {}}
+                        style={selectedUid === item.uidToSelect ? { borderColor: currentTheme.primary } : {}}
                     >
                         <div className="flex justify-between items-start">
                             <div className="flex items-center gap-3">
@@ -23,18 +24,18 @@ const PeopleList = ({
                                         src={item.foto}
                                         alt={item.nome}
                                         className="w-14 h-14 rounded-full object-cover border-2"
-                                        style={{ borderColor: selectedUid === item.uidToSelect ? '#4f46e5' : 'transparent' }}
+                                        style={{ borderColor: selectedUid === item.uidToSelect ? currentTheme.primary : 'transparent' }}
                                     />
                                 ) : (
                                     <div
                                         className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center border-2"
-                                        style={{ borderColor: selectedUid === item.uidToSelect ? '#4f46e5' : 'transparent' }}
+                                        style={{ borderColor: selectedUid === item.uidToSelect ? currentTheme.primary : 'transparent' }}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
                                     </div>
                                 )}
                                 <div>
-                                    <p className="font-bold text-sm" style={selectedUid === item.uidToSelect ? { color: '#4f46e5' } : {}}>{item.nome}</p>
+                                    <p className="font-bold text-sm" style={selectedUid === item.uidToSelect ? { color: currentTheme.primary } : {}}>{item.nome}</p>
                                     <p className="text-[11px] text-gray-500 uppercase mt-0.5">{item.relazione}</p>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@ const PeopleList = ({
                                 <span className="text-[10px] text-gray-400 block mt-1">{item.nextEvent.tipo} {item.occorrenza && `• ${item.occorrenza}`}</span>
                             </div>
                         </div>
-                        {selectedUid === item.uidToSelect && <div className="absolute left-0 top-3 bottom-3 w-1 rounded-r" style={{ backgroundColor: '#4f46e5' }}></div>}
+                        {selectedUid === item.uidToSelect && <div className="absolute left-0 top-3 bottom-3 w-1 rounded-r" style={{ backgroundColor: currentTheme.primary }}></div>}
                     </div>
                 </React.Fragment>
             ))}

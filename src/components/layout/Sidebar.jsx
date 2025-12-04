@@ -14,7 +14,8 @@ const Sidebar = ({
     setShowArchive,
     showPeopleList,
     setShowPeopleList,
-    handleLogout
+    handleLogout,
+    currentTheme
 }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -48,16 +49,17 @@ const Sidebar = ({
     return (
         <aside className="w-full md:w-90 bg-slate-50 border-r border-gray-200 flex flex-col h-auto md:h-full shadow-xl z-20">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50">
-                <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
+                <div className="flex items-center gap-2 font-bold text-lg" style={{ color: currentTheme.primary }}>
                     <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                 </div>
                 <div className='flex items-center gap-2'>
 
-                    <button onClick={handleHomeClick} className="p-1.5 rounded shadow hover:opacity-90 transition bg-indigo-600 text-white">
+                    <button onClick={handleHomeClick} className="p-1.5 rounded shadow hover:opacity-90 transition text-white"
+    style={{ backgroundColor: currentTheme.primary }} >
                         <Home size={20} />
                     </button>
                     <div className="relative md:hidden" ref={menuRef}>
-                        <button onClick={() => setMenuOpen(!menuOpen)} className="p-1.5 rounded shadow hover:opacity-90 transition bg-indigo-600 text-white">
+                        <button onClick={() => setMenuOpen(!menuOpen)} className="p-1.5 rounded shadow hover:opacity-90 transition text-white" style={{ backgroundColor: currentTheme.primary }}>
                             <Menu size={20} />
                         </button>
                         {menuOpen && (
@@ -83,10 +85,10 @@ const Sidebar = ({
 
             <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 h-screen overflow-y-auto custom-scroll pt-[env(safe-area-inset-top)]' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
                 <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50 md:hidden">
-                    <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
+                    <div className="flex items-center gap-2 font-bold text-lg" style={{ color: currentTheme.primary }}>
                         <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                     </div>
-                    <button onClick={() => setShowPeopleList(false)} className="p-1.5 rounded shadow hover:opacity-90 transition mr-2 bg-indigo-600 text-white">
+                    <button onClick={() => setShowPeopleList(false)} className="p-1.5 rounded shadow hover:opacity-90 transition mr-2 text-white" style={{ backgroundColor: currentTheme.primary }}>
                         <Home size={20} />
                     </button>
                 </div>
@@ -110,6 +112,7 @@ const Sidebar = ({
                     sidebarList={filteredPeople}
                     handleSidebarClick={handleSidebarClick}
                     selectedUid={selectedUid}
+                    currentTheme={currentTheme}
                 />
             </div>
             <div className="hidden md:flex justify-between items-center p-2 border-t border-gray-200 bg-slate-50">
