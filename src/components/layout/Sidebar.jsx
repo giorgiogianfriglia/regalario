@@ -83,7 +83,7 @@ const Sidebar = ({
                 </div>
             </div>
 
-            <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 h-screen overflow-y-auto custom-scroll' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
+            <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 h-screen overflow-y-auto custom-scroll pt-[env(safe-area-inset-top)]' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
                 <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50 md:hidden">
                     <div className="flex items-center gap-2 font-bold text-lg text-indigo-600">
                         <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
