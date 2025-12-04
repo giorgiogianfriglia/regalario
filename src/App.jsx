@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { App as CapacitorApp } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
 import { useRegalario } from './hooks/useRegalario';
 import AuthScreen from './components/auth/AuthScreen';
 import Sidebar from './components/layout/Sidebar';
@@ -17,6 +19,24 @@ import { calcolaOccorrenza, formatFixedDate } from './utils/helpers';
 
 export default function App() {
     const regalario = useRegalario();
+
+    useEffect(() => {
+        if (Capacitor.isNativePlatform()) {
+            const listener = CapacitorApp.addListener('backButton', ({ canGoBack }) => {
+                // We currently prevent going back. If you want to enable it,
+                // you would check `if (canGoBack)` and call `window.history.back()`.
+                if (!canGoBack) {
+                    regalario.askConfirm('Uscire?', 'Vuoi davvero uscire dall\'app?', () => {
+                        CapacitorApp.exitApp();
+                    });
+                }
+            });
+
+            return () => {
+                listener.remove();
+            };
+        }
+    }, [regalario]);
 
     if (!regalario.session) {
         return <AuthScreen {...regalario} />;

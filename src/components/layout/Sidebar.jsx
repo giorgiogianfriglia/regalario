@@ -52,9 +52,7 @@ const Sidebar = ({
                     <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                 </div>
                 <div className='flex items-center gap-2'>
-                    <button onClick={openNewPersonModal} className="p-1.5 rounded shadow hover:opacity-90 transition bg-indigo-600 text-white">
-                        <Plus size={20} />
-                    </button>
+
                     <button onClick={handleHomeClick} className="p-1.5 rounded shadow hover:opacity-90 transition bg-indigo-600 text-white">
                         <Home size={20} />
                     </button>
