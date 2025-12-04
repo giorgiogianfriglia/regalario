@@ -4,6 +4,7 @@ import { ImageEditor } from '../ui/ImageEditor';
 import { getCroppedImg, formatCurrency } from '../../utils/helpers';
 
 export const GiftModal = (props) => {
+    const { currentTheme } = props;
     const [imageToEdit, setImageToEdit] = useState(null);
     const fileInputRefCamera = useRef(null);
     const fileInputRefGallery = useRef(null);
@@ -53,7 +54,8 @@ export const GiftModal = (props) => {
                                     fileInputRefCamera.current.click();
                                     setShowPhotoChoice(false);
                                 }}
-                                className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold"
+                                style={{ backgroundColor: currentTheme.primary }}
+                                className="w-full text-white p-3 rounded-lg font-semibold"
                             >
                                 Scatta una foto
                             </button>
@@ -194,7 +196,7 @@ export const GiftModal = (props) => {
                         </div>
                         <div className="pt-4 border-t flex justify-end gap-3">
                             <button type="button" onClick={props.onClose} className="px-4 py-2 bg-gray-100 font-bold rounded-lg">Annulla</button>
-                            <button onClick={props.handleSaveRegalo} className="px-4 py-2 text-white font-bold rounded-lg" style={{ backgroundColor: props.currentTheme.primary }}>Salva Regalo</button>
+                            <button onClick={props.handleSaveRegalo} className="px-4 py-2 text-white font-bold rounded-lg" style={{ backgroundColor: currentTheme.primary }}>Salva Regalo</button>
                         </div>
                     </div>
                 </div>

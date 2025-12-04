@@ -5,17 +5,19 @@ html {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
+  height: 100%;
 }
 
 body {
     background-color: #f0f2f5; /* A light gray background for the area outside the box */
+    height: 100%;
 }
 
 #root {
     max-width: 1200px; /* A standard width */
     margin: 0 auto; /* Center the box */
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* A subtle shadow for the box */
-    height: 100vh;
+    height: 100%;
 }
 
 /* Scrollbar personalizzata */

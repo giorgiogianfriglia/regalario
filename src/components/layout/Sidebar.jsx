@@ -83,8 +83,8 @@ const Sidebar = ({
                 </div>
             </div>
 
-            <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 h-screen overflow-y-auto custom-scroll pt-[env(safe-area-inset-top)]' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
-                <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50 md:hidden">
+            <div className={`${showPeopleList ? 'fixed inset-0 bg-white z-20 flex flex-col pt-[env(safe-area-inset-top)]' : 'hidden'} md:block md:static md:flex-1 md:overflow-y-auto custom-scroll`}>
+                <div className="p-4 border-b border-gray-200 flex-shrink-0 flex justify-between items-center bg-slate-50 md:hidden">
                     <div className="flex items-center gap-2 font-bold text-lg" style={{ color: currentTheme.primary }}>
                         <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
                     </div>
@@ -92,7 +92,7 @@ const Sidebar = ({
                         <Home size={20} />
                     </button>
                 </div>
-                <div className="sticky top-0 bg-slate-50 z-10">
+                <div className="flex-shrink-0 md:sticky md:top-0 bg-slate-50 z-10">
                     <div className="relative px-4 py-3 border-b border-gray-200">
                         <Search size={16} className="absolute left-7 top-6 text-gray-400" />
                         <input
@@ -108,12 +108,14 @@ const Sidebar = ({
                         <span>Prossima scadenza</span>
                     </div>
                 </div>
-                <PeopleList 
-                    sidebarList={filteredPeople}
-                    handleSidebarClick={handleSidebarClick}
-                    selectedUid={selectedUid}
-                    currentTheme={currentTheme}
-                />
+                <div className="overflow-y-auto custom-scroll">
+                    <PeopleList 
+                        sidebarList={filteredPeople}
+                        handleSidebarClick={handleSidebarClick}
+                        selectedUid={selectedUid}
+                        currentTheme={currentTheme}
+                    />
+                </div>
             </div>
             <div className="hidden md:flex justify-between items-center p-2 border-t border-gray-200 bg-slate-50">
                 <div>
