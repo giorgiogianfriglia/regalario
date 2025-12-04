@@ -194,7 +194,7 @@ export const GiftModal = (props) => {
                         </div>
                         <div className="pt-4 border-t flex justify-end gap-3">
                             <button type="button" onClick={props.onClose} className="px-4 py-2 bg-gray-100 font-bold rounded-lg">Annulla</button>
-                            <button onClick={props.handleSaveRegalo} className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg">Salva Regalo</button>
+                            <button onClick={props.handleSaveRegalo} className="px-4 py-2 text-white font-bold rounded-lg" style={{ backgroundColor: props.currentTheme.primary }}>Salva Regalo</button>
                         </div>
                     </div>
                 </div>

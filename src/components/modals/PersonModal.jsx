@@ -35,7 +35,8 @@ export const PersonModal = ({
     setCustomEventType,
     saveCustomEventType,
     newEventDate,
-    setNewEventDate
+    setNewEventDate,
+    currentTheme
 }) => { 
     const [imageToEdit, setImageToEdit] = React.useState(null);
     const fileInputRefCamera = React.useRef(null);
@@ -87,7 +88,8 @@ export const PersonModal = ({
                                     fileInputRefCamera.current.click();
                                     setShowPhotoChoice(false);
                                 }}
-                                className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold"
+                                className="w-full text-white p-3 rounded-lg font-semibold"
+                                style={{ backgroundColor: currentTheme.primary }}
                             >
                                 Scatta una foto
                             </button>
@@ -247,7 +249,7 @@ export const PersonModal = ({
                             )}
                             <div className="pt-4 border-t flex justify-end gap-3">
                                 <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-100 font-bold rounded-lg">Annulla</button>
-                                <button type="submit" className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg">Salva</button>
+                                <button type="submit" className="px-4 py-2 text-white font-bold rounded-lg" style={{ backgroundColor: currentTheme.primary }}>Salva</button>
                             </div>
                         </form>
                     </div>

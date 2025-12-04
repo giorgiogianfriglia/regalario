@@ -12,7 +12,8 @@ const HomeScreen = ({
     handleSidebarClick,
     handleRefreshAmazonSuggestions,
     selectedUid,
-    setShowPeopleList
+    setShowPeopleList,
+    currentTheme
 }) => {
     const soonestDay = sidebarList.length > 0 ? Math.min(...sidebarList.map(p => p.nextEvent.days)) : null;
     const soonestPeopleRaw = sidebarList.filter(p => p.nextEvent.days === soonestDay);
@@ -149,7 +150,7 @@ const HomeScreen = ({
                                             )}
                                         </div>
                                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mt-2">
-                                            <span className="flex items-center gap-1.5 bg-indigo-100 text-indigo-600 font-bold px-3 py-1 rounded-full">
+                                            <span className="flex items-center gap-1.5 bg-gray-100 font-bold px-3 py-1 rounded-full" style={{ color: currentTheme.primary }}>
                                                 <Calendar size={14} />
                                                 {nextEvent.nextEvent.tipo}
                                             </span>
