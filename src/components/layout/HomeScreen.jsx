@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Gift, Calendar, Plus, Users, Star, RefreshCw, Camera } from 'lucide-react';
+import { Gift, Calendar, Plus, Users, Star, RefreshCw, Camera, UserPlus } from 'lucide-react';
 import PeopleList from './PeopleList';
 
 const HomeScreen = ({
@@ -66,7 +66,7 @@ const HomeScreen = ({
                     {/* Left Column: Action Buttons */}
                     <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
                         <button onClick={openNewPersonModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                            <Users className="mx-auto mb-2 text-indigo-500" size={24} />
+                            <UserPlus className="mx-auto mb-2 text-indigo-500" size={24} />
                             <span className="font-bold text-sm text-gray-700">Nuova Persona</span>
                         </button>
                         <button onClick={openNewGiftModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-200 hover:bg-gray-100 transition">
@@ -94,10 +94,11 @@ const HomeScreen = ({
                                                 <img
                                                     src={nextEvent.foto}
                                                     alt={nextEvent.nome}
-                                                    className="w-14 h-14 rounded-full object-cover border-2 border-indigo-600 scale-110"
+                                                    className="w-14 h-14 rounded-full object-cover border-2 scale-110"
+                                                    style={{ borderColor: currentTheme.primary }}
                                                 />
                                             ) : (
-                                                <div className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center border-2 border-indigo-600 scale-110">
+                                                <div className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center border-2 scale-110" style={{ borderColor: currentTheme.primary }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
                                                 </div>
                                             )}

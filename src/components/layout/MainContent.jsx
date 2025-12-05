@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gift, Calendar, Plus, Trash, Pencil, Lightbulb, RefreshCw, Search, Calculator, Link as LinkIcon, ExternalLink, ShoppingBag, Euro, Clock, Users, Camera, X } from 'lucide-react';
+import { Gift, Calendar, Plus, Trash, Pencil, Lightbulb, RefreshCw, Search, Calculator, Link as LinkIcon, ExternalLink, ShoppingBag, Euro, Clock, Users, Camera, UserPlus, X } from 'lucide-react';
 import { AdUnit, GiftImage } from '../ui/Shared';
 import HomeScreen from './HomeScreen';
 import { truncateText } from '../../utils/helpers';
@@ -98,7 +98,7 @@ const MainContent = (props) => {
                     <div className="flex-grow sm:w-4/5 sm:flex-grow-0">
                         <div className="grid grid-cols-2 gap-4 h-full">
                             <button onClick={openNewPersonModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-300 hover:bg-gray-100 transition w-full h-full">
-                                <Users className="mx-auto mb-2 text-indigo-500" size={24} />
+                                <UserPlus className="mx-auto mb-2 text-indigo-500" size={24} />
                                 <span className="font-bold text-sm text-gray-700">Nuova Persona</span>
                             </button>
                             <button onClick={openNewGiftModal} className="bg-white text-center p-4 rounded-xl shadow-sm border border-gray-300 hover:bg-gray-100 transition w-full h-full">

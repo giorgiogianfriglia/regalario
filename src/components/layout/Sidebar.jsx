@@ -49,8 +49,8 @@ const Sidebar = ({
     return (
         <aside className="w-full md:w-90 bg-slate-50 border-r border-gray-200 flex flex-col h-auto md:h-full shadow-xl z-20">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-slate-50">
-                <div className="flex items-center gap-2 font-bold text-lg" style={{ color: currentTheme.primary }}>
-                    <img src={logo} className="w-6 h-6 object-contain" alt="logo" /> Regalario
+                <div className="flex items-center gap-2 font-bold text-2xl text-[#289bcc]">
+                    <img src={logo} className="w-11 h-11 object-contain" alt="logo" /> Regalario
                 </div>
                 <div className='flex items-center gap-2'>
 
